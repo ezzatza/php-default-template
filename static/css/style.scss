@@ -9,14 +9,17 @@
     box-sizing: border-box;
 }
 
+// variables
 :root {
     --main-color: #4fa2fb;
     --main-highlight: rgba(79, 162, 251, 0.2);
     --bg-main: #fff;
     --text-color: #000;
+    --borders: rgba(135, 135, 135, 0.2);
     --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+// default tags
 a {
     color: var(--text-color);
     text-decoration: none;
@@ -36,35 +39,110 @@ p {
     padding: 5px 0;
 }
 
+// custom button style class and tag
 .btn,
 button {
     display: block;
     width: fit-content;
     background-color: var(--main-highlight);
     padding: 0.5rem;
-    border-radius: 35px;
+    border-radius: 5px;
     border: 1px solid var(--main-color);
-    font-weight: 300px;
     cursor: pointer;
     color: var(--main-color);
     transition: 0.3s;
+    font-family: inherit;
+    text-align: center;
+    appearance: none;
+    font-size: 15px;
 
     &:hover {
-        color: var(--main-color);
+        opacity: 0.8;
     }
 }
 
+button {
+    padding: 0.5rem;
+}
+
+
+// responsive container
 .container {
     max-width: 1920px;
     margin: 0 auto;
 }
 
+// website body styling
 body {
     background-color: var(--bg-main);
     color: var(--text-color);
     font-weight: 400;
     font-family: var(--font-family);
     direction: ltr;
+}
+
+// form
+form {
+    @include flex();
+    flex-direction: column;
+    padding: 1rem;
+
+    .input-group {
+        margin: 0 0 1rem;
+
+        input,
+        textarea,
+        select {
+            background: var(--bg-main);
+            border: 1px solid var(--borders);
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            outline: 0;
+            transition: 0.3s;
+            width: 100%;
+            color: var(--text-color);
+
+            &:focus {
+                outline: 0;
+                border-color: var(--main-color);
+            }
+        }
+    }
+}
+
+.custom-form {
+    margin: 1rem auto;
+    border: 1px solid var(--borders);
+    max-width: 400px;
+    border-radius: 5px;
+
+    .input-group {
+        min-width: 300px;
+    }
+}
+
+.message {
+    @include flex();
+    gap: 5px;
+    border-radius: 5px;
+    background-color: var(--main-highlight);
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    padding: 1rem;
+    width: fit-content;
+    margin: 1rem auto;
+
+    svg {
+        width: 20px;
+        height: 20px;
+        display: flex;
+    }
+
+    .remove {
+        margin-left: .5rem;
+        cursor: pointer;
+    }
 }
 
 .dark {

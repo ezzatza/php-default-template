@@ -11,6 +11,10 @@ require __DIR__ . "/database.php";
 require __DIR__ . "/helpers.php";
 require __DIR__ . "/csrf.php";
 
+// environment variables
+$app_name = $_ENV['APP_NAME'];
+$app_ver = $_ENV['APP_VER'];
+
 // track visited content per user
 if (!isset($_SESSION['viewed_content'])) {
     $_SESSION['viewed_content'] = [];
@@ -25,25 +29,19 @@ if (isset($_SESSION['lang']) && $_SESSION['lang'] == "ar") {
     require __DIR__ . "/../languages/en.php";
 }
 
-$isLogged = false;
+// Login info
 if (isset($_SESSION['login'])) {
     $sql = "SELECT * FROM `users` WHERE `id` = '$_SESSION[login]'";
     $result = query($sql);
 
     if (mysqli_num_rows($result) > 0) {
-        $isLogged = true;
         $user_data = fetch($result);
-
         $userId = $user_data['id'];
         $userName = $user_data['username'];
         $userRole = $user_data['role'];
-        $isAdmin = false;
 
         if ($userRole == 1) {
             $isAdmin = true;
         }
     }
 }
-
-$app_name = $_ENV['APP_NAME'];
-$app_ver = $_ENV['APP_VER'];

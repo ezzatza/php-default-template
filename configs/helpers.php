@@ -12,8 +12,8 @@ function base_url()
 // Query database
 function query($query)
 {
-    global $con;
-    return mysqli_query($con, $query);
+    global $conn;
+    return mysqli_query($conn, $query);
 }
 
 // Check user inputs
@@ -36,12 +36,43 @@ function redirect($link)
     exit;
 }
 
+// Check if user logged in
+function check_login()
+{
+    if (isset($_SESSION['login'])) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 // Show message
 function message()
 {
     if (isset($_SESSION['msg'])) {
-        $output = "<div id='popup' class='popup-message'>{$_SESSION['msg']}</div>";
+        $output = "
+        <div id='message' class='message'>
+            <svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 16 16'>
+                <path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2'/>
+            </svg>
+            {$_SESSION['msg']}
+            <svg xmlns='http://www.w3.org/2000/svg' class='remove' id='remove' fill='currentColor' viewBox='0 0 16 16'>
+                <path d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708'/>
+            </svg>
+        </div>";
         $_SESSION['msg'] = null;
+        return $output;
+    } else {
+        return null;
+    }
+}
+
+// Show alert
+function alert()
+{
+    if (isset($_SESSION['alert'])) {
+        $output = "<div id='popup' class='popup'>{$_SESSION['alert']}</div>";
+        $_SESSION['alert'] = null;
         return $output;
     } else {
         return null;

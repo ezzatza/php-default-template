@@ -1,5 +1,5 @@
 <?php
 $lang = array(
-    "title" => "",
-    "description" => "",
+    "login" => "تسجيل الدخول",
+    "signup" => "إنشاء حساب",
 );

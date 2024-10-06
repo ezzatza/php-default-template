@@ -1,2 +1,5 @@
 <?php
-$lang = array();
+$lang = array(
+    "login" => "Login",
+    "signup" => "Sign Up",
+);

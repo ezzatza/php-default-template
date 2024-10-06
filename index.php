@@ -15,6 +15,8 @@ $main_route = $path[0];
 
 // Add main routes
 $routes = [
+    // 'here the route like /something' => '/here-the-file-path/like/this.php'
+
     '' => 'home.php',
 ];
 

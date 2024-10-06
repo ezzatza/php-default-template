@@ -1,0 +1,1 @@
+<link rel="stylesheet" href="<?= base_url() . "/static/css/style.css?ver=" . $app_ver; ?>">

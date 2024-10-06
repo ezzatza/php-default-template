@@ -1,0 +1,1 @@
+<script src="<?= base_url() . "/static/js/script.js?ver=" . $app_ver; ?>"></script>

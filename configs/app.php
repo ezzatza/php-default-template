@@ -1,7 +1,7 @@
 <?php
 
 // session info
-session_name('_ic_project_');
+// session_name(''); // set static session name
 session_set_cookie_params(604800); // session lifetime in seconds
 session_start();
 
@@ -46,4 +46,4 @@ if (isset($_SESSION['login'])) {
 }
 
 $app_name = $_ENV['APP_NAME'];
-$app_version = $_ENV['APP_VER'];
+$app_ver = $_ENV['APP_VER'];

@@ -1,3 +1,8 @@
+@mixin flex {
+    display: flex;
+    align-items: center;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,9 +11,52 @@
 
 :root {
     --main-color: #4fa2fb;
+    --main-highlight: rgba(79, 162, 251, 0.2);
     --bg-main: #fff;
     --text-color: #000;
-    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+
+    &:hover {
+        color: var(--main-color);
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    padding: 5px 0;
+}
+
+.btn,
+button {
+    display: block;
+    width: fit-content;
+    background-color: var(--main-highlight);
+    padding: 0.5rem;
+    border-radius: 35px;
+    border: 1px solid var(--main-color);
+    font-weight: 300px;
+    cursor: pointer;
+    color: var(--main-color);
+    transition: 0.3s;
+
+    &:hover {
+        color: var(--main-color);
+    }
+}
+
+.container {
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 body {
@@ -18,7 +66,6 @@ body {
     font-family: var(--font-family);
     direction: ltr;
 }
-
 
 .dark {
     --bg-main: #111;

@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #4fa2fb;
+    --bg-main: #fff;
+    --text-color: #000;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-color);
+    font-weight: 400;
+    font-family: var(--font-family);
+    direction: ltr;
+}
+
+
+.dark {
+    --bg-main: #111;
+    --text-color: #f0f0f0;
+}
